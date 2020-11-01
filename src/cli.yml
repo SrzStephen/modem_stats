@@ -10,7 +10,7 @@ subcommands:
     # Rust code later
     - stdout:
         about: Prints data to stdout
-        version: "0.0.1"
+        version: "1.0.0"
         author: Stephen Mott
         # Subcommand args are exactly like App args
         args:
@@ -28,7 +28,7 @@ subcommands:
                 default_value: "30"
     - mqtt:
         about: Prints data to AWS MQTT
-        version: "0.0.1"
+        version: "1.0.0"
         author: Stephen Mott
         # Subcommand args are exactly like App args
         args:

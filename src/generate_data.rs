@@ -22,16 +22,4 @@ extern crate json;
         .unwrap();
         return String::from_utf8(cmd.stdout).unwrap();
     }
-    fn get_ls_(args:Vec<&str>) -> String{
-        let cmd = Command::new("ls")
-        .args(&args)
-        .stdout(Stdio::piped())
-        .output()
-        .unwrap();
-        return String::from_utf8(cmd.stdout).unwrap();
-    }
-    pub fn make_common_payload() -> String{
-        return get_ls_(vec!["-a", "-h"]);
-
-    }
 }
