@@ -13,6 +13,8 @@ If you're not trying to test ```modemstats``` then you probably shouldn't be cal
 ➜  ubus
 Usage: ubus [OPTIONS] COMMAND [ARGS]...
 
+  This isn't the real ubus. It's a simulator
+
 Options:
   --help  Show this message and exit.
 
@@ -21,6 +23,7 @@ Commands:
   network.device
   system
   wireless.radio.stats
+
 
 ```
 
