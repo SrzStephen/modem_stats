@@ -32,16 +32,16 @@ class TestCLI(TestCase):
             self.assertGreater(len(stdout.keys()), 0)
 
     def test_mobile(self):
-        self.__run_command(['mobiled.radio', 'signal_quality'])
+        self.__run_command(['call', 'mobiled.radio', 'signal_quality'])
 
     def test_wireless_radio(self):
-        self.__run_command(['wireless.radio.stats', 'get'])
+        self.__run_command(['call', 'wireless.radio.stats', 'get'])
 
     def test_system(self):
-        self.__run_command(['system', 'info'])
+        self.__run_command(['call', 'system', 'info'])
 
     def test_network_device(self):
-        self.__run_command(['network.device', 'status'])
+        self.__run_command(['call', 'network.device', 'status'])
     def test_system_command(self):
         """all tests before this tested the python command.. did it pip install as a proper command?"""
         process = Popen(['ubus'],stdout=PIPE)

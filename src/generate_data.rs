@@ -1,7 +1,7 @@
 pub mod payload{
 use std::process::{Command, Stdio};
 use std::string::String;
-extern crate json;
+extern crate serde;
 
     pub fn make_payload() -> String{
         //let mystr: String  = getStdout(vec!["mobiled.radio","signal_quality"]);
@@ -22,4 +22,6 @@ extern crate json;
         .unwrap();
         return String::from_utf8(cmd.stdout).unwrap();
     }
+
+
 }

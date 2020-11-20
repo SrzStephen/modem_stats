@@ -8,23 +8,27 @@ def ubus():
     """This isn't the real ubus. It's a simulator"""
     pass
 
+@ubus.group(name="call")
+def call():
+    """This isn't the real ubus. It's a simulator"""
+    pass
 
-@ubus.group(name="system")
+@call.group(name="system")
 def system():
     pass
 
 
-@ubus.group(name="wireless.radio.stats")
+@call.group(name="wireless.radio.stats")
 def wireless_radio_stats():
     pass
 
 
-@ubus.group(name="network.device")
+@call.group(name="network.device")
 def network_device():
     pass
 
 
-@ubus.group(name="mobiled.radio")
+@call.group(name="mobiled.radio")
 def mobiled_radio():
     pass
 

@@ -4,14 +4,24 @@ version = "1.0.0"
 authors = ["Stephen Mott <stephen@motts.id.au>"]
 edition = "2018"
 
+[[bin]]
+name="ModemStats"
+path="src/main.rs"
+
 [dependencies]
 aws-iot-device-sdk-rust = "0.0.4"
 clap = {version = "~2.27.0", features = ["yaml"]}
 log = "0.4"
 json = "0.12.4"
+serde = "*"
+serde_json = "*"
+serde_derive = "*"
+assert_cmd = "1.0.1"
 
 [profile.release]
 lto = true
 codegen-units = 1
 panic = 'abort'
 opt-level = 3
+
+
