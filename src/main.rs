@@ -7,6 +7,8 @@ use log::{info, trace, warn};
 use std::process;
 mod generate_data;
 pub use crate::generate_data::payload;
+use std::time::SystemTime;
+static VERSION:&str = "1.0.1";
 
 fn main() {
     let yaml = load_yaml!("cli.yml");
@@ -45,8 +47,10 @@ fn mqtt(clientid:&str ,rootCA: &str, devicecert:&str,devicekey:&str,endpoint:&st
         endpoint
     ).unwrap();
     println!("Starting loop");
+    let mut message_number:i32 = 0;
+    let time_now = SystemTime::now();
     while true {
-        iot_client.publish(topic.to_string(),QoS::AtMostOnce, &payload::make_payload());
+        iot_client.publish(topic.to_string(),QoS::AtMostOnce, &payload::generate_data(message_number, &time_now, VERSION));
         println!("Publishing to topic {}",topic.to_string());
         thread::sleep(wait_duration);
     }
@@ -54,12 +58,15 @@ fn mqtt(clientid:&str ,rootCA: &str, devicecert:&str,devicekey:&str,endpoint:&st
 
 fn stdout(cont: bool, period: time::Duration){
     // Not using generators becuase they're super experimental atm
+    let mut message_number:i32 = 0;
+    let time_now = SystemTime::now();
     while true {
-        print!("{}",payload::make_payload());
+        print!("{}",payload::generate_data(message_number, &time_now, VERSION));
                 if cont != true{
             process::exit(0);
         }
         thread::sleep(period);
+        message_number +=1;
     }  
     }
     

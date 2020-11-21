@@ -3,6 +3,8 @@ use assert_cmd::prelude::{CommandCargoExt, OutputAssertExt};
 extern crate serde_json;
 use serde_json::json;
 use serde_json::Value as JsonValue;
+extern crate parsers;
+
 #[test]
 fn test_cli_help(){
 let cmd = Command::new("ModemStats")
