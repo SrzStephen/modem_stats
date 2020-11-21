@@ -11,11 +11,9 @@ if find_executable('ubus'):
     process = Popen('ubus', stdout=PIPE)
     stdout, _ = process.communicate(timeout=10)
     if process.returncode !=0:
-        raise OSError(f"trying to call 'ubus' gave error code {process.returncode}, can't determine whether you have "
-                      f"ubus installed or not.")
+        raise OSError(f"trying to call 'ubus' gave error code {process.returncode} can't determine whether you have ubus installed or not.")
     if "This isn't the real ubus" not in stdout.__str__():
-        raise OSError(f"You may have the real ubus installed. Exiting for safety \n"
-                      f"{stdout.__str__()}")
+        raise OSError(f"You may have the real ubus installed. Exiting for safety \n {stdout.__str__()}")
 
 
 
@@ -38,5 +36,6 @@ setup(
     include_package_data=True,
     package_data={
         "":["data/*.json"]
-    }
+    },
+    install_requires=['click','pytest']
 )
