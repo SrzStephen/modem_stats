@@ -6,8 +6,14 @@ rust:
     - stable
     - beta
     - nightly
+addons:
+    apt:
+        packages:
+        - python3-pip
 before_install:
     - rustup self update
+    - sudo apt-get install python3 -y
+    - sudo apt-get install python3-pip -y
 
 install:
     - pip install ubus_simulator/.
