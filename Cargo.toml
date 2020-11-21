@@ -1,6 +1,6 @@
 [package]
 name = "modem_stats"
-version = "1.1.0"
+version = "1.2.0"
 authors = ["Stephen Mott <stephen@motts.id.au>"]
 edition = "2018"
 [lib]
