@@ -8,7 +8,7 @@ use std::process;
 mod generate_data;
 pub use crate::generate_data::payload;
 use std::time::SystemTime;
-static VERSION:&str = "1.0.1";
+static VERSION:&str = "1.1.0";
 
 fn main() {
     let yaml = load_yaml!("cli.yml");

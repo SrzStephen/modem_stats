@@ -1,4 +1,4 @@
-# DJA0231 Stats (1.0.1)
+# DJA0231 Stats (1.1.0)
 ![Image of Modem](docs/modem_image.jpg)
 
 # About
@@ -15,7 +15,7 @@ This pulls mobile, system, wireless and interface data using [OpenWRT ubus](http
 the base ```modem_stats``` command does nothing and will just print help, use subcommands ```mqtt``` and ```stdout``` to do something useful.
 ```zsh
 root@mymodem: ./modem_stats --help
-ModemData 1.0.1
+ModemData 1.1.0
 Stephen Mott
 Pull stats from DJA0231 (and possibly other openWRT modems) and send to mqtt/stdout
 
