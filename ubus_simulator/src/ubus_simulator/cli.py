@@ -1,6 +1,13 @@
 import click
-from .data import network_data, wireless_data, system_data, mobile_data
-from json import dumps
+from json import dumps, load
+from pathlib import Path
+data_dir = Path(__file__).parent.absolute() / 'data/'
+
+def load_file(file_path:str) -> str:
+    with open(data_dir / file_path) as fp:
+        return dumps(load(fp))
+        
+
 
 
 @click.group()
@@ -35,22 +42,22 @@ def mobiled_radio():
 
 @mobiled_radio.command(name="signal_quality")
 def mobiled_signal():
-    print(dumps(mobile_data))
+    print(load_file('mobile.json'))
 
 
 @wireless_radio_stats.command(name="get")
 def wireless_radio_stats():
-    print(dumps(wireless_data))
+    print(load_file('wireless.json'))
 
 
 @network_device.command(name="status")
 def network_device_status():
-    print(dumps(network_data))
+    print(load_file('network.json'))
 
 
 @system.command(name="info")
 def system_info():
-    print(dumps(system_data))
+    print(load_file('system.json'))
 
 
 if __name__ == "__main__":

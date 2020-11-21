@@ -1,0 +1,19 @@
+{
+    "localtime": 1604250024,
+    "uptime": 83878,
+    "load": [
+        22016,
+        23584,
+        23552
+    ],
+    "memory": {
+        "total": 440557568,
+        "free": 15015936,
+        "shared": 0,
+        "buffered": 20017152
+    },
+    "swap": {
+        "total": 0,
+        "free": 0
+    }
+}

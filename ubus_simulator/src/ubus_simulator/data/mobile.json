@@ -1,0 +1,14 @@
+{
+    "lte_ul_bandwidth": 20,
+    "rsrp": -111,
+    "lte_dl_bandwidth": 20,
+    "rssi": -76,
+    "dl_earfcn": 2950,
+    "additional_carriers": [],
+    "radio_interface": "lte",
+    "lte_band": 7,
+    "rsrq": -15,
+    "radio_bearer_type": "FDD LTE",
+    "phy_cell_id": "REDACTED",
+    "sinr": 2
+}

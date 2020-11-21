@@ -35,5 +35,8 @@ setup(
     platforms="linux",
     entry_points={'console_scripts': ['ubus=ubus_simulator.cli:ubus'
                                       ]},
-    install_requires='click==7.1.2'
+    include_package_data=True,
+    package_data={
+        "":["data/*.json"]
+    }
 )

@@ -1,0 +1,38 @@
+{
+    "radio_2G": {
+        "tx_packets": 1026966,
+        "tx_unicast_packets": 379723,
+        "tx_broadcast_packets": 322446,
+        "tx_multicast_packets": 324797,
+        "tx_errors": 0,
+        "tx_discards": 0,
+        "tx_bytes": 492650358,
+        "rx_packets": 254510,
+        "rx_unicast_packets": 240175,
+        "rx_broadcast_packets": 2368,
+        "rx_multicast_packets": 11967,
+        "rx_errors": 0,
+        "rx_discards": 0,
+        "rx_bytes": 74071145,
+        "rx_bad_fcs": 2627578,
+        "rx_bad_plcp": 7527759
+    },
+    "radio_5G": {
+        "tx_packets": 1283299,
+        "tx_unicast_packets": 4294967290,
+        "tx_broadcast_packets": 644924,
+        "tx_multicast_packets": 638381,
+        "tx_errors": 0,
+        "tx_discards": 0,
+        "tx_bytes": 251614066,
+        "rx_packets": 0,
+        "rx_unicast_packets": 0,
+        "rx_broadcast_packets": 0,
+        "rx_multicast_packets": 0,
+        "rx_errors": 0,
+        "rx_discards": 0,
+        "rx_bytes": 0,
+        "rx_bad_fcs": 730535,
+        "rx_bad_plcp": 306903
+    }
+}
