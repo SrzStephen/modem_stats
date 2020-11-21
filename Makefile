@@ -7,8 +7,11 @@ release:
 bump:
 	bumpversion patch
 
+prep-test:
+	pip3 install ubus_simulator/.
+
 test:
-	pip3 install ubus_simulator/. && cargo test && pytest ubus_simulator
+	cargo test && pytest ubus_simulator
 
 install:
 	cargo install --.
