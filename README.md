@@ -4,10 +4,14 @@
 # About
 I got a bit grumpy with $BIGTelco not exposing modem stats via something reasonable, so I decided to do it myself.
 
-This pulls mobile, system, wireless and interface data through [openwrts ubus](https://openwrt.org/docs/techref/ubus) and pushes it to stdout/AWS MQTT to be consumed by other applications. An example of what this data looks like is available in ```docs/data.json```.
+This pulls mobile, system, wireless and interface data using [OpenWRT ubus](https://openwrt.org/docs/techref/ubus) and pushes it to stdout/AWS MQTT to be consumed by other applications. This format is compatable with [Kirby Transform](https://github.com/SrzStephen/Kirby-Transform)
+
+
+ An example of what this data looks like is available in ```docs/data.json```.
 
 # Usage
 ## Base
+```make install``` and then run ```ModemStats```.
 the base ```modem_stats``` command does nothing and will just print help, use subcommands ```mqtt``` and ```stdout``` to do something useful.
 ```zsh
 root@mymodem: ./modem_stats --help
@@ -127,10 +131,6 @@ And you should now be able to copy this binary over to the modem and run it. mak
 Since this is a WIP made very quickly, there's still a few todos.
 
 * Make it run on startup with ```init.d```.
-* Finish the timestream/influxdb integration so I can plot it with my existing grafana instance
-* Batching of messages for higher resolution timesteps without incurring stupidly high AWS costs
-* Make the code less trash -> Currently I'm just unwrap()ing everything and not actually handling errors.
-* Tests
 * CI pipeline
 
 # Why though?
