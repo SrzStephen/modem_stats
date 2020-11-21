@@ -1,14 +1,12 @@
 language: rust
 sudo: required
-python:
-    - "3.6"
 rust:
-    -1.47.0
     - stable
     - beta
     - nightly
 before_install:
     - rustup self update
+
 install:
     - pip install ubus_simulator/.
     - make install
