@@ -10,19 +10,6 @@ use parsers::parse::{parse_system,parse_network,parse_mobile,parse_wireless};
 use serde_json::Value as JsonValue;
 use serde_json::json;
 use std::time::{SystemTime, UNIX_EPOCH};
-    pub fn get_mobile() ->JsonValue
-    {   
-        let stdout = getStdout(vec!["mobiled.radio","signal_quality"]);
-        let result:Result<JsonValue, serde_json::Error> = serde_json::from_str(&stdout);
-        if result.is_ok()
-        {
-            return parse_mobile(&result.unwrap())
-        }
-        else
-        {
-            return json!({});
-        }
-    }
     pub fn get_data() -> Vec<JsonValue>
     {
         let stdout_mobile:Result<JsonValue, serde_json::Error> = serde_json::from_str(&getStdout(vec!["mobiled.radio","signal_quality"]));
@@ -85,13 +72,6 @@ use std::time::{SystemTime, UNIX_EPOCH};
         }).to_string();
     }
 }
-#[test]
-fn test_single_get()
-{
-    println!("{}",payload::get_mobile().to_string());
-    assert!(payload::get_mobile().pointer("/fields").unwrap().is_object());
-}
-
 #[test]
 fn test_get_data()
 {
