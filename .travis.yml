@@ -7,7 +7,6 @@ sudo: required
 python:
     - 3.7
 rust:
-    - stable
     - nightly
 
 cache: cargo
@@ -30,6 +29,8 @@ addons:
             - gcc-5-arm-linux-gnueabihf
             - python3.7
             - python3-pip
+            - libssl-dev
+
 
 before_install:
     - python3.7 -m pip install setuptools
@@ -45,7 +46,6 @@ install:
 script:
     - python3.7 -m pytest ubus_simulator/
     - make test
-    - which musl-gcc
     - make release_travis
     
 matrix:
