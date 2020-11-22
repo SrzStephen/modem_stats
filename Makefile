@@ -14,4 +14,4 @@ test:
 	cargo test && pytest ubus_simulator
 
 install:
-	cargo install --.
+	cargo install -- .
