@@ -43,6 +43,7 @@ addons:
 
 before_install:
 - apt-cache search gcc
+- apt-cache search libc
 - rustup show active-toolchain
 - python3.7 -m pip install setuptools bumpversion
 - python3.7 -m pip install ubus_simulator/.
