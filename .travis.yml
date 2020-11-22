@@ -10,7 +10,7 @@ rust:
 before_install:
     - rustup self update
     - sudo apt install software-properties-common -y
-    - sudo add-apt-repository ppa:deadsnakes/ppa
+    - sudo add-apt-repository ppa:deadsnakes/ppa -y
     - sudo apt update -y
     - sudo apt install python3.7 -y
     - sudo apt-get install python3-setuptools python3-pip -y
