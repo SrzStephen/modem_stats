@@ -11,6 +11,12 @@ rust:
     - nightly
 
 cache: cargo
+
+compiler:
+    - gcc
+    - clang-3.6
+    - musl-gcc
+
 env:
     RUST_BACKTRACE=1
 addons:
@@ -29,7 +35,6 @@ addons:
 before_install:
     - python3.7 -m pip install setuptools
     - python3.7 -m pip install ubus_simulator/.
-    - python3.7 -m pip install pytest
     - rustup self update
     - python --version
     - pip --version
