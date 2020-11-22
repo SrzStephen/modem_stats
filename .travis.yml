@@ -9,8 +9,9 @@ rust:
 
 before_install:
     - rustup self update
-    - pyenv install 3.7.0
-    - pyenv global 3.7.0
+    - pyenv install --list
+    - pyenv install 3.6.8
+    - pyenv global 3.6.8
     - python --version
     - pip --version
 
