@@ -1,32 +1,58 @@
 language: rust
+
+arch: arm64
+
 sudo: required
+
 python:
-    -"3.6"
+    - 3.7
 rust:
-    - stable
-    - beta
     - nightly
 
+cache: cargo
+
+compiler:
+    - gcc
+    - clang-3.6
+    - musl-gcc
+
+env:
+    RUST_BACKTRACE=1
+addons:
+    apt:
+        sources:
+            - deadsnakes
+        packages: &all
+            - musl
+            - musl-tools
+            - musl-dev
+            - gcc-5-arm-linux-gnueabihf
+            - python3.7
+            - python3-pip
+            - libssl-dev
+
+
 before_install:
+    - python3.7 -m pip install setuptools
+    - python3.7 -m pip install ubus_simulator/.
     - rustup self update
-    - sudo apt install software-properties-common -y
-    - sudo add-apt-repository ppa:deadsnakes/ppa -y
-    - sudo apt update -y
-    - sudo apt install python3.7 -y
-    - sudo apt-get install python3-setuptools python3-pip -y
-    - python3 --version
+    - python --version
+    - pip --version
 
 install:
-    - pip3 install ubus_simulator/.
-    - make install
     - cargo install cross
     - rustup target add armv7-unknown-linux-musleabi
 
 script:
+    - python3.7 -m pytest ubus_simulator/
     - make test
-    - make release
+    - make release_travis
     
 matrix:
     allow_failures:
         - rust: nightly
     fast_finish: true
+
+after_failure:
+    - apt-cache search musl
+    - apt-cache search gnueabihf
