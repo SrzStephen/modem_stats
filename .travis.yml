@@ -1,6 +1,9 @@
 language: rust
+
 arch: arm64
+
 sudo: required
+
 python:
     - 3.7
 rust:
@@ -8,13 +11,17 @@ rust:
     - beta
     - nightly
 
+cache: cargo
+env:
+    RUST_BACKTRACE=1
 addons:
     apt:
         sources:
             - deadsnakes
         packages: &musl_packages
-            - musl-tools
             - musl
+            - musl-tools
+            - musl-dev
             - gcc-5-arm-linux-gnueabihf
         packages: &python
             - python3.7
@@ -23,6 +30,7 @@ addons:
 before_install:
     - python3.7 -m pip install setuptools
     - python3.7 -m pip install ubus_simulator/.
+    - python3.7 -m pip install pytest
     - rustup self update
     - python --version
     - pip --version
