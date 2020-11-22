@@ -8,7 +8,6 @@ python:
 - 3.7
 
 rust:
-- stable
 - nightly
 
 cache: cargo
@@ -29,14 +28,20 @@ addons:
     - musl-tools
     - musl-dev
     - gcc-5-arm-linux-gnueabihf
-    - python3.7
-    - python3-pip
-    - libssl-dev
+    - gcc-arm-linux-gnueabihf 
     - binutils-arm-linux-gnueabihf
     - libc6 
     - libc6-dev
+    - libgcc-5-dev-armhf-cross
+    - libgcc-5-dev
+    - libgcc-5-dev-arm64-cross 
+    - gcc-5-cross-base
+    - gcc-5-arm-linux-gnueabihf-base 
+    - python3.7
+    - python3-pip
+    - libssl-dev
+
 before_install:
-- apt-cache search gcc
 - rustup show active-toolchain
 - python3.7 -m pip install setuptools bumpversion
 - python3.7 -m pip install ubus_simulator/.
@@ -50,10 +55,6 @@ script:
 - python3.7 -m pytest ubus_simulator/
 - make test
 - make release_travis
-matrix:
-  allow_failures:
-  - rust: nightly
-  fast_finish: true
 
 before_deploy:
     - git config --global push.followTags true
