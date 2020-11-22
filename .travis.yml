@@ -1,11 +1,17 @@
 language: rust
+
 arch: arm64
+
 sudo: required
+
 python:
 - 3.7
+
 rust:
 - nightly
+
 cache: cargo
+
 compiler:
 - gcc
 - clang-3.6
@@ -61,4 +67,3 @@ deploy:
   on:
     tags: true
     branch: main
- 
