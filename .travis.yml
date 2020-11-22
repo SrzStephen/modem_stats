@@ -15,7 +15,7 @@ before_install:
     - pyenv global 3.6.3
     - python --version
     - pip --version
-    - apt install gcc-8-arm-linux-gnueabihf musl-tools -y
+    - sudo apt install gcc-8-arm-linux-gnueabihf musl-tools -y
     - pip install ubus_simulator/.
 
 
