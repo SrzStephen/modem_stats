@@ -1,7 +1,5 @@
 language: rust
 
-arch: arm64
-
 sudo: required
 
 python:
