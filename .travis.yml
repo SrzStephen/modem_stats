@@ -18,7 +18,7 @@ addons:
             - gcc-5-arm-linux-gnueabihf
         packages: &python
             - python3.7
-            - python3.7-pip
+            - python3-pip
 
 before_install:
     - python3.7 -m pip install setuptools
