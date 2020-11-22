@@ -23,12 +23,11 @@ addons:
     apt:
         sources:
             - deadsnakes
-        packages: &musl_packages
+        packages: &all
             - musl
             - musl-tools
             - musl-dev
             - gcc-5-arm-linux-gnueabihf
-        packages: &python
             - python3.7
             - python3-pip
 
