@@ -35,6 +35,7 @@ addons:
     - binutils-arm-linux-gnueabihf
     - libc6 
     - libc6-dev
+    - libgcc-6-dev-armhf-cross
 before_install:
 - rustup show active-toolchain
 - python3.7 -m pip install setuptools bumpversion
