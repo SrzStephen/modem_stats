@@ -1,4 +1,5 @@
 language: rust
+arch: arm64
 sudo: required
 python:
     -"3.6"
@@ -9,7 +10,7 @@ rust:
 
 addons:
     apt:
-        packages:
+        packages: &musl_packages
             - musl-tools
             - gcc-8-arm-linux-gnueabihf
             
@@ -37,3 +38,7 @@ matrix:
     allow_failures:
         - rust: nightly
     fast_finish: true
+
+after_failure:
+    - apt-cache search musl
+    - apt-cache search gnueabihf
