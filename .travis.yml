@@ -8,12 +8,7 @@ rust:
     - beta
     - nightly
 
-addons:
-    apt:
-        packages: &musl_packages
-            - musl-tools
-            - gcc-8-arm-linux-gnueabihf
-            
+
 before_install:
     
     - rustup self update
@@ -23,7 +18,9 @@ before_install:
     - python --version
     - pip --version
     - pip install ubus_simulator/.
-
+    - apt-cache search musl
+    - apt-cache search gnueabihf
+    - apt-cache search gcc
 
 install:
     - make install
