@@ -8,7 +8,6 @@ python:
     - 3.7
 rust:
     - stable
-    - beta
     - nightly
 
 cache: cargo
@@ -36,13 +35,13 @@ before_install:
     - pip --version
 
 install:
-    - make install
     - cargo install cross
     - rustup target add armv7-unknown-linux-musleabi
 
 script:
     - python3.7 -m pytest ubus_simulator/
     - make test
+    - which musl-gcc
     - make release_travis
     
 matrix:
