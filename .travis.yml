@@ -8,7 +8,7 @@ rust:
     - nightly
 
 before_install:
-    - pip install ubus_simulator/.
+    
     - rustup self update
     - pyenv install --list
     - pyenv install 3.6.3
@@ -16,6 +16,7 @@ before_install:
     - python --version
     - pip --version
     - apt install gcc-8-arm-linux-gnueabihf musl-tools -y
+    - pip install ubus_simulator/.
 
 
 install:
