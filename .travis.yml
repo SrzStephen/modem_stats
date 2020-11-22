@@ -40,6 +40,7 @@ addons:
     - python3.7
     - python3-pip
     - libssl-dev
+    - libc6-dev-armhf-cross 
 
 before_install:
 - apt-cache search gcc
