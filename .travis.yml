@@ -8,21 +8,18 @@ rust:
     - beta
     - nightly
 
-addons:
-    apt:
-        packages:
-            - pyenv
 
 before_install:
+    - apt-cache search musl
+    - apt-cache search gnueabihf
+    - apt-cache search gcc
+    - apt-cache search pyenv
     - rustup self update
     - pyenv install 3.6.3
     - pyenv global 3.6.3
     - python --version
     - pip --version
     - pip install ubus_simulator/.
-    - apt-cache search musl
-    - apt-cache search gnueabihf
-    - apt-cache search gcc
 
 install:
     - make install
