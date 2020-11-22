@@ -55,7 +55,7 @@ before_deploy:
     - git config --global user.name "Travis CI"
     - python3.7 -m bumpversion patch
     - git commit --amend -m "automated bumpversion \n [ci skip] \n Build: $TRAVIS_BUILD_NUMBER"
-    - git remtote add main https://${GITHUB_API_KEY}@github.com/SrzStephen/modem_stats.git > /dev/null 2>&1
+    - git remote add main https://${GITHUB_API_KEY}@github.com/SrzStephen/modem_stats.git > /dev/null 2>&1
     - git push --quiet --set-upstream main main
 
 deploy:
