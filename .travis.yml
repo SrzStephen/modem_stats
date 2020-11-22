@@ -9,6 +9,7 @@ python:
 
 rust:
 - stable
+- nightly
 
 cache: cargo
 
@@ -31,7 +32,9 @@ addons:
     - python3.7
     - python3-pip
     - libssl-dev
+    - binutils-arm-linux-gnueabihf
 before_install:
+- rustup show active-toolchain
 - python3.7 -m pip install setuptools bumpversion
 - python3.7 -m pip install ubus_simulator/.
 - rustup self update
