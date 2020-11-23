@@ -28,6 +28,7 @@ addons:
     - musl
     - musl-tools
     - musl-dev
+    - linux-musl-dev
     - libssl-dev
     - python3.7
     - python3-pip
@@ -55,8 +56,8 @@ install:
 - cargo install cross
 - rustup target add armv7-unknown-linux-musleabi
 - compgen -A function
-- find /etc/ -name "*gnueabihf*"
-- find /bin/ -name "*gnueabihf*"
+- sudo find /usr/bin/ -name "*gnueabihf*"
+- sudo find /bin/ -name "*gnueabihf*"
 script:
 - python3.7 -m pytest ubus_simulator/
 - make test
