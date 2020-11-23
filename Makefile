@@ -5,7 +5,7 @@ release:
 	CARGO_TARGET_ARM_UNKNOWN_LINUX_MUSLEABIHF_LINKER=arm-linux-gnueabihf-ld REALGCC=arm-linux-gnueabihf-gcc-8 TARGET_CC=musl-gcc CFLAGS="-mfloat-abi=softfp" cross build --release --target armv7-unknown-linux-musleabi
 
 release_travis:
-	CC_armv7-unknown-linux-musleabi=arm-linux-gnueabihf-gcc-5 CC_armv7_unknown_linux_musleabi=arm-linux-gnueabihf-gcc-5 CARGO_TARGET_ARM_UNKNOWN_LINUX_MUSLEABIHF_LINKER=arm-linux-gnueabihf-gcc-5 REALGCC=arm-linux-gnueabihf-gcc-5 TARGET_CC=musl-gcc CFLAGS="-mfloat-abi=softfp" cross build --release --target armv7-unknown-linux-musleabi
+	CC_armv7-unknown-linux-musleabi=arm-linux-gnueabihf-gcc-5 CC_armv7_unknown_linux_musleabi=arm-linux-gnueabihf-gcc-5 CARGO_TARGET_ARM_UNKNOWN_LINUX_MUSLEABIHF_LINKER=arm-linux-gnueabihf-ld REALGCC=arm-linux-gnueabihf-gcc-5 TARGET_CC=musl-gcc CFLAGS="-mfloat-abi=softfp" cross build --release --target armv7-unknown-linux-musleabi
 
 bump:
 	bumpversion patch
