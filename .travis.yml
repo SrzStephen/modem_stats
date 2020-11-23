@@ -28,7 +28,6 @@ addons:
     - musl
     - musl-tools
     - musl-dev
-    - linux-musl-dev
     - libssl-dev
     - python3.7
     - python3-pip
