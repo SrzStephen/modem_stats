@@ -27,22 +27,12 @@ addons:
     - musl
     - musl-tools
     - musl-dev
-    - gcc-5-arm-linux-gnueabihf
-    - gcc-arm-linux-gnueabihf 
-    - binutils-arm-linux-gnueabihf
-    - libc6 
-    - libc6-dev
-    - libgcc-5-dev-armhf-cross
-    - libgcc-5-dev
-    - libgcc-5-dev-arm64-cross 
-    - gcc-5-cross-base
-    - gcc-5-arm-linux-gnueabihf-base 
+    - libssl-dev
     - python3.7
     - python3-pip
-    - libssl-dev
-    - ibc6-dev-armhf-cross 
 
 before_install:
+
 - apt-cache search gcc
 - apt-cache search libc
 - rustup show active-toolchain
