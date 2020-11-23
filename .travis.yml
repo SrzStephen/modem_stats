@@ -42,7 +42,7 @@ addons:
     - libc6-dev 
 
 before_install:
-
+- apt-cache search gnueabi
 - apt-cache search gcc
 - apt-cache search libc
 - rustup show active-toolchain
@@ -55,6 +55,7 @@ install:
 - cargo install cross
 - rustup target add armv7-unknown-linux-musleabi
 - compgen -A function
+- find /* -name "*gnueabihf*"
 script:
 - python3.7 -m pytest ubus_simulator/
 - make test
