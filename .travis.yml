@@ -32,6 +32,14 @@ addons:
     - python3.7
     - python3-pip
     - libc6-dev-armhf-cross
+    - gcc-8
+    - libgcc-8-dev
+    - cpp-8
+    - libc++-8-dev
+    - gcc-arm-linux-gnueabi
+    - cpp-arm-linux-gnueabihf
+    - libc6 
+    - libc6-dev 
 
 before_install:
 
