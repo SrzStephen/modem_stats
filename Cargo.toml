@@ -26,3 +26,5 @@ codegen-units = 1
 panic = 'abort'
 opt-level = 3
 
+[target.armv7-unknown-linux-gnueabihf]
+linker = "arm-linux-gnueabihf-gcc"
