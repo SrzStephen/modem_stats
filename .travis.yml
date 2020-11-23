@@ -32,14 +32,14 @@ addons:
     - python3.7
     - python3-pip
     - libc6-dev-armhf-cross
-    - gcc-8
-    - libgcc-8-dev
-    - cpp-8
-    - libc++-8-dev
     - gcc-arm-linux-gnueabi
     - cpp-arm-linux-gnueabihf
     - libc6 
     - libc6-dev 
+    - gcc-5-multilib-arm-linux-gnueabihf
+    - gcc-multilib-arm-linux-gnueabi
+    - gcc-5-arm-linux-gnueabi
+    - gcc-5-arm-linux-gnueabihf
 
 before_install:
 - apt-cache search gnueabi
@@ -55,7 +55,8 @@ install:
 - cargo install cross
 - rustup target add armv7-unknown-linux-musleabi
 - compgen -A function
-- find /* -name "*gnueabihf*"
+- find /etc/ -name "*gnueabihf*"
+- find /bin/ -name "*gnueabihf*"
 script:
 - python3.7 -m pytest ubus_simulator/
 - make test
