@@ -1,5 +1,5 @@
 language: rust
-
+arch: arm64
 sudo: required
 
 python:
@@ -40,7 +40,7 @@ addons:
     - python3.7
     - python3-pip
     - libssl-dev
-    - libc6-dev-armhf-cross 
+    - ibc6-dev-armhf-cross 
 
 before_install:
 - apt-cache search gcc
@@ -54,6 +54,7 @@ before_install:
 install:
 - cargo install cross
 - rustup target add armv7-unknown-linux-musleabi
+- compgen -A function
 script:
 - python3.7 -m pytest ubus_simulator/
 - make test
