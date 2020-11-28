@@ -1,0 +1,39 @@
+language: rust
+arch: arm64
+sudo: required
+python:
+- 3.7
+rust:
+- stable
+- nightly
+cache: cargo
+
+compiler:
+  - gcc
+  - musl-gcc
+
+env: 
+    - RUST_BACKTRACE=1
+addons:
+  apt:
+    sources:
+    - deadsnakes
+    packages:
+      - libssl-dev
+      - python3.7
+      - python3-pip
+before_install:
+- python3.7 -m pip install setuptools bumpversion
+- python3.7 -m pip install ubus_simulator/.
+- rustup self update
+- python --version
+- pip --version
+install:
+  - cargo install cross
+  - rustup target add armv7-unknown-linux-musleabi
+
+script:
+- python3.7 -m pytest ubus_simulator/
+- export PATH="/home/travis/.local/bin/ubus:$PATH"
+- make install
+- make test

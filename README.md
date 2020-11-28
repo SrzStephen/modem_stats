@@ -1,4 +1,4 @@
-# DJA0231 Stats (1.1.0)
+# DJA0231 Stats (1.1.0) [![Build Status](https://travis-ci.org/SrzStephen/modem_stats.svg?branch=main)](https://travis-ci.org/SrzStephen/modem_stats)
 ![Image of Modem](docs/modem_image.jpg)
 
 # About
