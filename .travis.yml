@@ -5,26 +5,47 @@ python:
 - 3.7
 rust:
 - stable
+- nightly
 cache: cargo
+
+compiler:
+  - gcc
+  - musl-gcc
+
 env: 
     - RUST_BACKTRACE=1
-    - secure: "YLeNBs1zWgmtxqdakjvUnb1EnZV6MwsAiG69q/7mgft0AT1jiMLedu2AjQjLvgOqlAIMaHvZyhTsBpXg7kSA2I/TQ5YdJNwRyDMxZZk+KjdVp3vKREaIEdw9rnsbMbEYsYG0B3NXozGjWplrR7jPmBrJ0M4oYG3niISgU03bozEGL6is81gsWYJlx6aWvF+6N4NzZ2bNtOkOjrRSvcQ/2qC68U1NtQf7H/xp5ail+LJDyUobZ5ow5/znSrnlJ/s0xSFPpxdAEUP9T0ahVcuuUXWxGp4gXEatHpb0JvDA8oxvAGa5UZGwcimfziOyA7m9JbYj0EeJ2ESMbe9EeS9obJUd2egWjSFTEZC1wDO6OlEFfTulMeDDkgCQJGiH7MsiJqx8GarhKSTTW/QFtvQU/cJTYiOPCYs7UKcE6tBwKNrxseSfd5sBVuSiRjvbHimN7t/IQQM3Zmmbxi5TJJiEraD3qtQ3nOh++2D90zVYfnAaFSypccdN0pKaPFDHECgZkS02Rz2/Q77Yn7Jly9gtT9h75CJ4RBWq8x04bNMy8+DBdxzhsYIBiHM75mzx7YKWWoK/HuBr1k8o8/AwxrjvvzxZwk0ThH1QW4KL9lOWDeAMXnmTH2UBtyp+QKyHuUGTCBqxcuXykvrxV5IZsRH40KeASRSFIqrgX0v2Jyfx/V8="
 addons:
   apt:
     sources:
     - deadsnakes
     packages:
-    - python3.7
-    - python3-pip
-    - libssl-dev
+      - musl
+      - musl-tools
+      - musl-dev
+      - libssl-dev
+      - python3.7
+      - python3-pip
+      - libc6-dev-armhf-cross
+      - gcc-arm-linux-gnueabi
+      - cpp-arm-linux-gnueabihf
+      - libc6 
+      - libc6-dev 
+      - gcc-5-multilib-arm-linux-gnueabihf
+      - gcc-multilib-arm-linux-gnueabi
+      - gcc-5-arm-linux-gnueabi
+      - gcc-5-arm-linux-gnueabihf
+
 before_install:
 - python3.7 -m pip install setuptools bumpversion
 - python3.7 -m pip install ubus_simulator/.
 - rustup self update
 - python --version
 - pip --version
+install:
+  - cargo install cross
+  - rustup target add armv7-unknown-linux-musleabi
+
 script:
 - python3.7 -m pytest ubus_simulator/
-- which ubus
-- ubus --help
+- export PATH="/home/travis/.local/bin/ubus:$PATH"
 - make test
