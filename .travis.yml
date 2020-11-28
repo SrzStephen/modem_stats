@@ -29,5 +29,6 @@ before_install:
 - pip --version
 script:
 - python3.7 -m pytest ubus_simulator/
+- which python3.7
+- ubus --help
 - make test
-- make release_travis
