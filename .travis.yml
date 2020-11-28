@@ -18,10 +18,6 @@ addons:
     sources:
     - deadsnakes
     packages:
-    - musl
-    - musl-tools
-    - musl-dev
-    - gcc-5-arm-linux-gnueabihf
     - python3.7
     - python3-pip
     - libssl-dev
@@ -31,34 +27,7 @@ before_install:
 - rustup self update
 - python --version
 - pip --version
-install:
-- cargo install cross
-- rustup target add armv7-unknown-linux-musleabi
 script:
 - python3.7 -m pytest ubus_simulator/
 - make test
 - make release_travis
-matrix:
-  allow_failures:
-  - rust: nightly
-  fast_finish: true
-
-before_deploy:
-    - git config --global push.followTags true
-    - git config --global user.email "Travis@Automated.Commit"
-    - git config --global user.name "Travis CI"
-    - python3.7 -m bumpversion patch
-    - git commit --amend -m "automated bumpversion \n [ci skip] \n Build: $TRAVIS_BUILD_NUMBER"
-    - git remtote add main https://${GITHUB_API_KEY}@github.com/SrzStephen/modem_stats.git > /dev/null 2>&1
-    - git push --quiet --set-upstream main main
-
-deploy:
-  provider: releases
-  api-key:
-    secure: oqVQcLY2O3lJLbIN0N4VUfntAnWWrw6wsoXzAhysEGofvQMrL+adBxP3oD1cajFhWCdwUXEmMbzW7fNV6eHJejKI21lXtx66owhU+fRXgA6B7rorcGPWkFtUfnIf1CX1fHiNtOdsg+0Wcy+kdrO589sU4wHNhyN+HJgYO6HYzmF6yyivcuWFfxk0jqRN0K+ihAMd8ImExpuug1rUOpuLed/+JTKugUEQoQ8Bc5PuX68AUFPAOjNO8/RWfK2G1hhyTiE9GY8ng/jSP1pTYH2+9En+qWEz4ULPvJpkl66EjHjwiYbnymlEXrepz2EOVenuikacqA2fVI1ruRh1VRgb8FnGveUD2F0CZOhWcgolGn2dJhB5/oiJDuZ6FgONWboWf7QOdUwXsR3ebcJrecU5V0uCGdqBaFR/mBXuvSgCOGeZDvp+3uwIDUoRlBbRABvYIrAKHnVI5lZc3iqx6CspL29yUfd0te2YNxiJNEH3CtCij5eJJaVqNYjs2iSWBy5sbOBRL5Bt3us/ErwiTiSxaO3PpCz1llf+oVGUoRaL/q2RVKtj3n5SPfg44rvRG4I3v+4+PnWHnd+OINUDeeLjtst2qni2LLVLFF/n+HKStx94T97cV+uwjxWKMDULpbWaDOA5meBzzfNMcS8Yj9Pj/ZGcPpj1T9hP5WWhwDoDQYY=
-  file: target/armv7-unknown-linux-musleabi/release/modem_stats
-  skip_cleanup: true
-  on:
-    tags: true
-    branch: main
- 
