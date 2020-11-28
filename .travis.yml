@@ -19,22 +19,9 @@ addons:
     sources:
     - deadsnakes
     packages:
-      - musl
-      - musl-tools
-      - musl-dev
       - libssl-dev
       - python3.7
       - python3-pip
-      - libc6-dev-armhf-cross
-      - gcc-arm-linux-gnueabi
-      - cpp-arm-linux-gnueabihf
-      - libc6 
-      - libc6-dev 
-      - gcc-5-multilib-arm-linux-gnueabihf
-      - gcc-multilib-arm-linux-gnueabi
-      - gcc-5-arm-linux-gnueabi
-      - gcc-5-arm-linux-gnueabihf
-
 before_install:
 - python3.7 -m pip install setuptools bumpversion
 - python3.7 -m pip install ubus_simulator/.
@@ -48,4 +35,5 @@ install:
 script:
 - python3.7 -m pytest ubus_simulator/
 - export PATH="/home/travis/.local/bin/ubus:$PATH"
+- make install
 - make test
